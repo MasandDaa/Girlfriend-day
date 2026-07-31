@@ -1,3 +1,4 @@
+
 ```html
 <!DOCTYPE html>
 <html lang="id">
@@ -5,110 +6,372 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Happy National Girlfriend Day ❤️</title>
+    <title>For Someone Special 💖</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            min-height: 100vh;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            background:
+                radial-gradient(circle at top, #32104f, #12051f 55%, #050208);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           BINTANG
+        ========================= */
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.2;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.4);
+            }
+        }
+
+        /* =========================
+           OPENING
+        ========================= */
+
+        .opening {
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow-x: hidden;
-            color: white;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 500px;
-            margin: 30px auto;
-            padding: 30px 25px;
             text-align: center;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 30px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            padding: 30px;
+            position: relative;
+            z-index: 2;
         }
 
-        .heart {
-            font-size: 70px;
-            animation: heartbeat 1.2s infinite;
+        .opening-box {
+            max-width: 600px;
         }
 
-        h1 {
-            font-size: 32px;
-            margin: 15px 0;
-        }
-
-        .subtitle {
-            font-size: 17px;
-            line-height: 1.6;
+        .small-text {
+            font-size: 14px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            opacity: 0.7;
             margin-bottom: 20px;
         }
 
-        .photo {
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 6px solid rgba(255,255,255,0.8);
-            box-shadow: 0 0 30px rgba(255,255,255,0.5);
-            margin: 20px auto;
-            display: block;
+        .opening h1 {
+            font-size: clamp(40px, 8vw, 75px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+
+            background:
+                linear-gradient(90deg, #fff, #ffb6d9, #fff);
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: glow 3s infinite alternate;
         }
 
-        button {
-            border: none;
-            padding: 14px 25px;
-            border-radius: 30px;
-            background: white;
-            color: #ff4f81;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            margin: 8px;
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+            }
+
+            to {
+                filter: drop-shadow(0 0 25px rgba(255,120,190,0.8));
+            }
         }
 
-        button:hover {
-            transform: scale(1.08);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-
-        #message {
-            display: none;
-            margin-top: 25px;
-            padding: 20px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 20px;
+        .opening p {
+            font-size: 18px;
             line-height: 1.7;
-            animation: appear 1s ease;
+            opacity: 0.8;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.4);
+
+            background: rgba(255,255,255,0.1);
+            color: white;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            backdrop-filter: blur(10px);
+
+            cursor: pointer;
+
+            transition: 0.4s;
+        }
+
+        .button:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 0 30px rgba(255,100,180,0.5);
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        #main {
+            display: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 650px;
+
+            padding: 40px 25px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,0.07);
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 20px 70px rgba(0,0,0,0.5),
+                inset 0 0 30px rgba(255,255,255,0.03);
+        }
+
+        /* =========================
+           FOTO
+        ========================= */
+
+        .photo-frame {
+            width: 260px;
+            height: 260px;
+
+            margin: 0 auto 30px;
+
+            padding: 7px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(135deg, #ff8fc7, #fff, #bd75ff);
+
+            animation: rotateGlow 5s linear infinite;
+        }
+
+        @keyframes rotateGlow {
+            0% {
+                box-shadow: 0 0 20px rgba(255,100,190,0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 50px rgba(255,100,190,0.8);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(255,100,190,0.3);
+            }
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            display: block;
+
+            border: 4px solid #160820;
+        }
+
+        /* =========================
+           JUDUL
+        ========================= */
+
+        h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .pink {
+            color: #ff9dcc;
+        }
+
+        .description {
+            line-height: 1.8;
+            font-size: 17px;
+            opacity: 0.8;
+        }
+
+        /* =========================
+           PESAN
+        ========================= */
+
+        .letter {
+            margin-top: 30px;
+
+            padding: 25px;
+
+            text-align: left;
+
+            background: rgba(255,255,255,0.05);
+
+            border-radius: 20px;
+
+            border-left: 3px solid #ff8fc7;
+
+            line-height: 1.8;
+
+            min-height: 180px;
+        }
+
+        #typing {
+            white-space: pre-line;
+        }
+
+        /* =========================
+           MUSIC
+        ========================= */
+
+        .music-box {
+            margin-top: 30px;
+        }
+
+        .music-button {
+            border: none;
+
+            padding: 15px 30px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(135deg, #ff72ae, #a86cff);
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 30px rgba(255,80,170,0.3);
+
+            transition: 0.3s;
+        }
+
+        .music-button:hover {
+            transform: scale(1.07);
         }
 
         #musicStatus {
-            margin-top: 10px;
-            font-size: 14px;
-            opacity: 0.9;
+            margin-top: 12px;
+            font-size: 13px;
+            opacity: 0.6;
         }
 
-        .floating-heart {
+        /* =========================
+           HEART
+        ========================= */
+
+        .heart {
             position: fixed;
-            bottom: -50px;
-            font-size: 25px;
-            animation: floatUp 6s linear forwards;
+
+            bottom: -40px;
+
             pointer-events: none;
+
+            z-index: 10;
+
+            animation: floatHeart 6s linear forwards;
+        }
+
+        @keyframes floatHeart {
+
+            0% {
+                transform:
+                    translateY(0)
+                    scale(0.5)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    scale(1.2)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           FINAL
+        ========================= */
+
+        .final-heart {
+            font-size: 80px;
+
+            animation:
+                heartbeat 1.2s infinite;
         }
 
         @keyframes heartbeat {
-            0%,100% {
+
+            0%, 100% {
                 transform: scale(1);
             }
 
@@ -117,136 +380,384 @@
             }
         }
 
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-
-            20% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(-110vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        @keyframes appear {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         .footer {
-            margin-top: 25px;
+            margin-top: 30px;
             font-size: 13px;
-            opacity: 0.8;
+            opacity: 0.5;
         }
+
+        /* =========================
+           HP
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .card {
+                padding: 30px 18px;
+            }
+
+            .photo-frame {
+                width: 210px;
+                height: 210px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+
+            .letter {
+                font-size: 15px;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-    <audio id="music" loop>
-        <source src="lagu.mp3" type="audio/mpeg">
-    </audio>
+    <!-- BINTANG -->
+    <div class="stars" id="stars"></div>
 
-    <div class="container">
 
-        <div class="heart">❤️</div>
+    <!-- =========================
+         OPENING
+    ========================= -->
 
-        <h1>
-            Happy National Girlfriend Day 💕
-        </h1>
+    <div class="opening" id="opening">
 
-        <p class="subtitle">
-            Untuk seseorang yang spesial... 🌷
-        </p>
+        <div class="opening-box">
 
-        <img
-            src="foto.jpg"
-            alt="Foto"
-            class="photo"
-        >
+            <div class="small-text">
+                A little surprise
+            </div>
 
-        <p class="subtitle">
-            Hari ini adalah hari spesial,
-            jadi aku ingin memberikan sesuatu
-            yang sederhana tapi penuh arti. 💖
-        </p>
-
-        <button onclick="showMessage()">
-            💌 Buka Pesan
-        </button>
-
-        <button onclick="toggleMusic()">
-            🎵 Putar Lagu
-        </button>
-
-        <div id="musicStatus">
-            Musik belum diputar
-        </div>
-
-        <div id="message">
-
-            <h2>
-                💖 Pesan Untukmu
-            </h2>
-
-            <br>
+            <h1>
+                Haii calon istrii ulun<br>
+                ulunn ada sesuatu istimewa khusus 
+                Spesial untuk pian sayanggg💝💞💐
+            </h1>
 
             <p>
-                Terima kasih sudah menjadi seseorang
-                yang begitu berarti. ✨
+                Sebuah halaman kecil yang istimewa,
+                dibuat untuk untuk pian 
+                ✨
             </p>
 
-            <br>
+            <button
+                class="button"
+                onclick="openWebsite()">
 
-            <p>
-                Semoga hari ini dipenuhi dengan
-                senyum, kebahagiaan, dan banyak
-                hal-hal indah. 🌸
-            </p>
+                💌 Buka Kejutan wahai istrikuu🤍🤍
 
-            <br>
+            </button>
 
-            <p>
-                Jangan lupa untuk selalu tersenyum
-                dan menikmati hari ini. ❤️
-            </p>
-
-            <br>
-
-            <p>
-                Happy National Girlfriend Day! 💕
-            </p>
-
-        </div>
-
-        <div class="footer">
-            Made with ❤️
         </div>
 
     </div>
 
+
+    <!-- =========================
+         MAIN WEBSITE
+    ========================= -->
+
+    <div id="main">
+
+
+        <!-- FOTO -->
+        <section>
+
+            <div class="card">
+
+                <div class="photo-frame">
+
+                    <img
+                        src="foto.jpg"
+                        class="photo"
+                        alt="Foto">
+
+                </div>
+
+                <h2>
+                    Happy National
+                    <span class="pink">
+                        Girlfriend Day
+                    </span>
+                    💕🌹
+                </h2>
+
+                <p class="description">
+
+                    Hari ini mungkin terlihat seperti
+                    hari biasa, tapi ada satu alasan
+                    untuk membuatnya terasa sedikit
+                    lebih spesial. 🌷
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PESAN -->
+        <section>
+
+            <div class="card">
+
+                <div class="small-text">
+                    A message for you
+                </div>
+
+                <h2>
+                    💌 Sebuah Pesan untuck istrikuu🤍
+                </h2>
+
+                <div class="letter">
+
+                    <div id="typing"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MUSIK -->
+        <section>
+
+            <div class="card">
+
+                <div class="final-heart">
+                    💖
+                </div>
+
+                <h2>
+                    One More Thing...
+                </h2>
+
+                <p class="description">
+
+                    Putar lagu ini sambil menikmati
+                    halaman kecil ini ya sayangggku . 🎵
+
+                </p>
+
+                <div class="music-box">
+
+                    <button
+                        class="music-button"
+                        onclick="toggleMusic()">
+
+                        🎵 Putar Musik
+
+                    </button>
+
+                    <div id="musicStatus">
+                        Musik belum diputar
+                    </div>
+
+                </div>
+
+                <div class="footer">
+
+                    Made with ❤️
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PENUTUP -->
+        <section>
+
+            <div class="card">
+
+                <div class="final-heart">
+                    🌹
+                </div>
+
+                <h2>
+                    Terima Kasih ✨
+                </h2>
+
+                <p class="description">
+
+                    Semoga hari ini membawa
+                    banyak senyum, kebahagiaan,
+                    dan kenangan indah.
+
+                    <br><br>
+
+                    Happy National Girlfriend Day sayangggg💖
+
+                </p>
+
+                <br>
+
+                <p>
+                    — dari dimas suami pian di masa depan 🌷
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+    <!-- MUSIK -->
+
+    <audio id="music" loop>
+
+        <source
+            src="lagu.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+
     <script>
 
-        function showMessage() {
+        /* =========================
+           BUKA WEBSITE
+        ========================= */
 
-            const message =
-                document.getElementById("message");
+        function openWebsite() {
 
-            message.style.display = "block";
+            document.getElementById("opening")
+                .style.display = "none";
+
+            document.getElementById("main")
+                .style.display = "block";
+
+            startTyping();
 
         }
+
+
+        /* =========================
+           BINTANG
+        ========================= */
+
+        const stars =
+            document.getElementById("stars");
+
+        for (let i = 0; i < 120; i++) {
+
+            const star =
+                document.createElement("div");
+
+            star.className = "star";
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+            star.style.animationDelay =
+                Math.random() * 3 + "s";
+
+            stars.appendChild(star);
+
+        }
+
+
+        /* =========================
+           PESAN MENGETIK
+        ========================= */
+
+        const message =
+
+`Untuk pasangan ulun yang spesial... 💖
+
+happy my girlfriend sayangggg 💗🎀🌷💐💞🫶🏻✨☁️💖💝🌸🩷💌 
+aarghhhh akhirnya hari yang ulunnn tunggu-tunggu 
+dateng jugaaa 💗 happy my girlfriend yaa cintakuuu🤍🤍
+semoga hari ini piannnn bahagia terus yaaa, senyumnya 
+jangan ilang-ilang 🌷 semoga semua yang piann lakuin hari ini
+lancar sampai seterusnya, apa yang piann pengenin pelan-pelan 
+bisa terwujud seperti crf dan hp ip piann✨ jangan lupa kalo mamm
+yangg banyaak ya sayangggg🍚🥤 jangan sering telat mamm 😠💞 
+minum yang banyak juga biar ga gampang capekk semoga aktivitas 
+kesibukann piann seharii hari, piann kerjainnya dengan sabar 
+dan semangatt ya, dan semoga ulunn dan piann ketemu banyak hal
+yang bikinn kita berdua langgeng teruss😆💗. makasih yaa udah
+hadir di hidup ulunn, makasih udah jadi orang yang selalu bikin
+ulunn semangat setiap hari juga 🫂💖.jujur ulunn seneng banget
+bisa kenal sama piann di hidupp Ulun jadi bagian hidup ulunn, 
+dan rasanya beruntung bangett piannn udahhh jadi perempuann 
+yangg sangatt ulunn sayanggg dan ulunn cintaaa dengannn setuluss 
+sepenuhh hati ulunn. semoga piannn selalu sehat yaa 🤲🏻🌸 dijauhin 
+dari orang-orang yang yanggg caperr gatell sama piannn dan kalau 
+lagi capekk ada masalahh jangan dipendem sendiri yaa adekk sayanggg, 
+ulun juga gamau piannn dan ulunn bermasalahh dan adu egoo lagi🥺🫂💞.
+ulunn mau hubungan kita langgeng terusss salingg nuruninn ego kalo
+ada masalah engga saling mendamm saling ceritaa dan salingg bertahann, 
+piannn jaga diri baikk baikk ya jangann sampai khilaff lagi dan ulunn 
+bakal selalu doainn piann biarr baik baikk terus bahagia terus dan ter
+lindungi dari hal yangg ga baikk dan Ulun mau hubungann kita berdua 
+sampai nikahhh jadi suami istrii dan bangun rumahh tangga yang penuh 
+dengan bahagia dan keromantisann dan kemesraan 🥹🌷 semoga tuhan 
+selalu jagain setiap langkah piann 🤲🏻✨, ngelindungin piann di mana 
+pun piann berada 🤍☁️, ngasih banyak kebahagiaan, rezeki, kesehatan, 
+dan semua hal baik buat piann 💐💖🌸. pokoknya hari ini harus banyak 
+senyum yaaa 😚💗 ga boleh cemberut 😤🩷 ga boleh cedihh 😠💞 karena 
+senyum piannn tu behh manis bangettt dehh🫰🏻🫶🏻💘. Dann ulunn harapp 
+piann ga di jodohinn ya sayanggg karena ulunn gamau banget piann di 
+jodohinn karena Ulun mau pian jadi istrii ulunn dan ulunn jadi suamii
+piann,semogaa ulunnn dan piannn langengg teruss ya sayangg jadi pasangan 
+                       sampai selamanya💞💐
+                sekali lagi happy my girlfriend dayy 
+              sayangggg🥹💗💐🌷🎀🩷💝💞🫶🏻✨☁️💖🧸🌸💌 
+            ulunn harap hari ini jadi salah satu hari paling 
+          indah buat piann, dan semoga nanti malam Dann malam 
+         seterusnyaa piann bisa tidur dengan hati yang bahagia 
+                karena hari ini berjalan sesuai yangg
+                 piann harapin 🤍🥹💗🌷💐🫂🎀✨.`;
+
+        let index = 0;
+
+        function startTyping() {
+
+            const typing =
+                document.getElementById("typing");
+
+            typing.innerHTML = "";
+
+            index = 0;
+
+            typeWriter();
+
+        }
+
+        function typeWriter() {
+
+            if (index < message.length) {
+
+                document.getElementById("typing")
+                    .innerHTML += message.charAt(index);
+
+                index++;
+
+                setTimeout(typeWriter, 35);
+
+            }
+
+        }
+
+
+        /* =========================
+           MUSIK
+        ========================= */
 
         function toggleMusic() {
 
@@ -274,27 +785,32 @@
 
         }
 
+
+        /* =========================
+           HATI TERBANG
+        ========================= */
+
         function createHeart() {
 
             const heart =
                 document.createElement("div");
 
-            heart.className =
-                "floating-heart";
+            heart.className = "heart";
 
-            const hearts = [
+            const emojis = [
                 "❤️",
                 "💕",
                 "💖",
                 "💗",
                 "💓",
-                "💞"
+                "✨",
+                "🌸"
             ];
 
             heart.innerHTML =
-                hearts[
+                emojis[
                     Math.floor(
-                        Math.random() * hearts.length
+                        Math.random() * emojis.length
                     )
                 ];
 
@@ -302,7 +818,7 @@
                 Math.random() * 100 + "vw";
 
             heart.style.fontSize =
-                (Math.random() * 20 + 20) + "px";
+                (Math.random() * 20 + 18) + "px";
 
             heart.style.animationDuration =
                 (Math.random() * 3 + 4) + "s";
@@ -310,11 +826,14 @@
             document.body.appendChild(heart);
 
             setTimeout(() => {
+
                 heart.remove();
+
             }, 7000);
+
         }
 
-        setInterval(createHeart, 500);
+        setInterval(createHeart, 600);
 
     </script>
 
